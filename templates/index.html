@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="post">
+
+        <!-- Grid -->
+        <textarea class="textarea" name="bbs" id="bbs"></textarea>
+        <div class="grid">
+
+            <!-- Markup example 1: input is inside label -->
+            <label for="name">
+                昵称：
+                <input type="text" id="name" name="name" placeholder="nickname" autocomplete="off" required>
+            </label>
+            <label for="qq">QQ：
+                <input type="qq" id="qq" name="qq" placeholder="qq" autocomplete="off" required>
+            </label>
+
+        </div>
+        <button type="submit">提交</button>
+
+    </form>
+
+
+    {% for card in mes %}  {# 迭代 movies 变量 #}
+        <article>
+            <img class="avatar" src="http://q1.qlogo.cn/g?b=qq&nk={{ card.qq }}&s=100" alt="">
+            {{ card.word }}
+            <footer>
+                <div><span class="name">{{ card.name }}</span><span class="sequence"> - #{{ card.id }}</span></div>
+                <!-- 在模板中可以直接使用 current_user 变量 -->
+                {% if current_user.is_authenticated %}
+{#                    <div class="btn-sm edit"><a href="{{ url_for('edit',message_id = card.id) }}">编辑</a></div>#}
+                    <a class="btn-sm edit" href="{{ url_for('edit',message_id = card.id) }}">编辑</a>
+
+                    <form class="btn-sm delete" method="post" action="{{ url_for('delete', message_id = card.id) }}">
+                        <input class="input" type="submit" value="删除" onclick="return confirm('确认要删除吗?')">
+                    </form>
+                {% endif %}
+                <kbd class="time">{{ card.time }}</kbd>
+            </footer>
+        </article>
+    {% endfor %}  {# 使用 endfor 标签结束 for 语句 #}
+    <script>
+        let time = document.getElementsByClassName('time')
+        for (let i=0;i<time.length;i++){
+            time[i].innerHTML = time[i].innerHTML.slice(0,16)
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post">
+
+    <!-- Grid -->
+    <textarea class="textarea" name="bbs" id="bbs">{{ card.word }}</textarea>
+    <div class="grid">
+
+        <!-- Markup example 1: input is inside label -->
+        <label for="name">
+            昵称：
+            <input type="text" id="name" name="name" placeholder="nickname" autocomplete="off" value="{{ card.name }}" required>
+        </label>
+        <label for="qq">QQ：
+            <input type="qq" id="qq" name="qq" placeholder="qq" autocomplete="off" value="{{ card.qq }}" required>
+        </label>
+
+    </div>
+    <button type="submit">修改留言</button>
+
+</form>
+{% endblock %}

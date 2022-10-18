@@ -1,0 +1,104 @@
+.textarea {
+    height: 12rem;
+}
+
+article {
+    position: relative;
+}
+
+article footer {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+article .time {
+}
+
+article .name {
+    text-decoration: underline;
+}
+
+article .avatar {
+    border-radius: 50%;
+    margin-right: 20px;
+    height: 70px;
+    border: 4px solid #dee;
+}
+
+article footer{
+    height: 3.5rem;
+}
+article footer a:hover{
+    text-decoration: none;
+}
+article footer .sequence{
+    color: #b8b8b8;
+    font-size: .8rem;
+}
+
+.btn-sm {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    width: 60px;
+    border: 1px solid #1095c1;
+    border-radius: 0.25rem;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .5s;
+}
+.delete {
+    position: absolute;
+    right: 315px;
+    margin-bottom: 0;
+    border: none;
+}
+.delete .input{
+    font-size: 14px;
+    width: 60px;
+    height: 30px;
+    padding: 0;
+    margin-bottom: 0;
+    border: 1px solid #b71c1c;
+    color: #b71c1c;
+    background-color: rgb(250, 250, 251);
+}
+.delete .input:hover{
+    background-color: #596b78;
+    border: 1px solid #493333;
+    color: #fff;
+}
+.edit {
+    position: absolute;
+    right: 235px;
+}
+.edit:hover{
+    background-color: #596b78;
+    border: 1px solid #493333;
+    color: #fff;
+}
+.alert {
+    position: relative;
+    padding: 7px;
+    margin: 7px 0;
+    border: 1px solid transparent;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    border-radius: 5px;
+}
+@media screen and (max-width: 640px) {
+
+    .delete {
+        right: 225px;
+    }
+
+    .edit {
+        right: 160px;
+    }
+}
+
